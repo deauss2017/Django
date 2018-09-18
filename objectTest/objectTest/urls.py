@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-
+from django.shortcuts import HttpResponse
+from django.conf.urls import url
+from cmdb import views
+def home(request):
+    return HttpResponse("<h1>hello</h1>")
 urlpatterns = [
     path('admin/', admin.site.urls),
+    url(r'^login', views.login),
+    url(r'^home', views.home),
 ]
